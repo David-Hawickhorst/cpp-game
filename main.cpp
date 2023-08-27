@@ -1,6 +1,7 @@
+#include "Game.h"
 #include <SFML/Graphics.hpp>
 
-int main() {
+void temp() {
     // Create the main window
     sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
 
@@ -18,9 +19,7 @@ int main() {
         sf::Event event;
         while (window.pollEvent(event)) {
             // Close window: exit
-            if (event.type == sf::Event::Closed) {
-                window.close();
-            }
+            if (event.type == sf::Event::Closed) { window.close(); }
         }
 
         // Clear screen
@@ -33,6 +32,7 @@ int main() {
         // Update the window
         window.display();
     }
-
-    return EXIT_SUCCESS;
 }
+
+
+int main() { temp(); }
