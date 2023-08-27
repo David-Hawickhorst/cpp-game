@@ -20,10 +20,15 @@ add_executable(${PROJECT_NAME} main.cpp
                EntityManager.h
                Game.cpp
                Game.h
+               Systems.h
 )
 
 # this is how to locate the 3rd party package from your system
 find_package(SFML COMPONENTS graphics window system REQUIRED)
+find_package(OpenGL REQUIRED)
 
 # this does the linking of the libraries
-target_link_libraries(${PROJECT_NAME} PRIVATE sfml-graphics sfml-window sfml-system)
+target_link_libraries(${PROJECT_NAME} PRIVATE
+                      sfml-graphics sfml-window sfml-system
+                      OpenGL::GL
+)

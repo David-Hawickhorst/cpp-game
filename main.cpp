@@ -1,42 +1,50 @@
 #include "Game.h"
 #include <SFML/Graphics.hpp>
+#include <SFML/OpenGL.hpp>
 
-void temp() {
-    // Create the main window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
+void testGL() {
+    // create the window
+    sf::Window window(sf::VideoMode(800, 600), "OpenGL", sf::Style::Default, sf::ContextSettings(32));
+    window.setVerticalSyncEnabled(true);
 
-    sf::CircleShape circle(50.f);
-    circle.setFillColor(sf::Color::Red);
-    circle.setPosition(100, 200);
+    // activate the window
+    window.setActive(true);
 
-    sf::CircleShape triangle(50.f, 3);
-    triangle.setFillColor(sf::Color::Blue);
-    triangle.setPosition(475, 375);
+    // load resources, initialize the OpenGL states, ...
 
-    // Start the game loop
-    while (window.isOpen()) {
-        // Process events
+    // run the main loop
+    bool running = true;
+    while (running) {
+        // handle events
         sf::Event event;
         while (window.pollEvent(event)) {
-            // Close window: exit
-            if (event.type == sf::Event::Closed) { window.close(); }
+            if (event.type == sf::Event::Closed) {
+                // end the program
+                running = false;
+            }
+            else if (event.type == sf::Event::Resized) {
+                // adjust the viewport when the window is resized
+                glViewport(0, 0, event.size.width, event.size.height);
+            }
         }
 
-        // Clear screen
-        window.clear();
+        // clear the buffers
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        // Draw the sprite
-        window.draw(circle);
-        window.draw(triangle);
+        // draw...
 
-        // Update the window
+        // end the current frame (internally swaps the front and back buffers)
         window.display();
     }
+
+    // release resources...
 }
 
 
 int main() {
-    Game game;
-    game.run();
+    //    Game game;
+    //    game.run();
+
+    testGL();
     return 0;
 }
