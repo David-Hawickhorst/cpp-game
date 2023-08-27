@@ -24,8 +24,13 @@ add_executable(${PROJECT_NAME} main.cpp
                Configurations.h
 )
 
+add_executable(sandbox
+               sandbox/sandbox.cpp)
+
 # this is how to locate the 3rd party package from your system
 find_package(SFML COMPONENTS graphics window system REQUIRED)
 
 # this does the linking of the libraries
 target_link_libraries(${PROJECT_NAME} PRIVATE sfml-graphics sfml-window sfml-system)
+target_link_libraries(sandbox PRIVATE sfml-graphics sfml-window sfml-system)
+
