@@ -11,6 +11,7 @@ public:
     Vec2() = default;
     Vec2(float xin, float yin) : x(xin), y(yin){};
 
+
     // Comparision operators
     bool operator==(const Vec2& rhs) const;
     bool operator!=(const Vec2& rhs) const;
@@ -57,7 +58,12 @@ public:
     float magnitude() const;
     Vec2 normalize() const;
 
+
 private:
     float x = 0;
     float y = 0;
+
+    // TODO: (maybe)
+    void dotProduct();
+    void crossProduct();
 };

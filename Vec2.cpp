@@ -10,17 +10,21 @@
 bool Vec2::operator==(const Vec2& rhs) const { return x == rhs.x && y == rhs.y; }
 bool Vec2::operator!=(const Vec2& rhs) const { return !(rhs == *this); }
 
+
 ///////////////////////////////////////////////////////////////////////////////
 // Operators returning new Vec2 object
 ///////////////////////////////////////////////////////////////////////////////
 Vec2 Vec2::operator+(const Vec2& rhs) const { return {x + rhs.x, y + rhs.y}; }
 Vec2 Vec2::operator-(const Vec2& rhs) const { return {x - rhs.x, y - rhs.y}; }
+
 Vec2 Vec2::operator/(const float val) const { return {x / val, y / val}; }
 Vec2 Vec2::operator*(const float val) const { return {x * val, y * val}; }
 
 ///////////////////////////////////////////////////////////////////////////////
 // Operators modifying the Calling Vec2 object
 ///////////////////////////////////////////////////////////////////////////////
+
+
 void Vec2::operator+=(const Vec2& rhs) {
     x += rhs.x;
     y += rhs.y;
@@ -77,8 +81,8 @@ float Vec2::distanceTo(const Vec2& vec) const { return sqrtf((vec.x - x) * (vec.
  * @return magnitude of vector
  */
 float Vec2::magnitude() const {
-    const float length = sqrtf(x * x + y * y);
-    return length;
+    const float magnitude = sqrtf(x * x + y * y);
+    return magnitude;
 }
 
 /**

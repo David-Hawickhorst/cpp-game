@@ -20,6 +20,8 @@ add_executable(${PROJECT_NAME} main.cpp
                EntityManager.h
                Game.cpp
                Game.h
+               Systems.h
+               Configurations.h
 )
 
 # this is how to locate the 3rd party package from your system
