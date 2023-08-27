@@ -15,7 +15,7 @@ public:
     Vec2 velocity = {0.0, 0.0};
     float angle   = 0;
     CTransform()  = default;
-    CTransform(const Vec2 &p, const Vec2 &v, float a) : pos(p), velocity(v), angle(a){};
+    CTransform(const Vec2& p, const Vec2& v, float a) : pos(p), velocity(v), angle(a){};
 };
 
 /**
@@ -32,7 +32,7 @@ public:
 class CShape {
 public:
     sf::CircleShape circle;
-    CShape(float radius, int points, const sf::Color &fill) : circle(radius, points) {
+    CShape(float radius, int points, const sf::Color& fill) : circle(radius, points) {
         circle.setFillColor(fill);
         circle.setOrigin(radius, radius);
     }

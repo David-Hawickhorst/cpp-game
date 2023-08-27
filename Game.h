@@ -5,6 +5,7 @@
 #pragma once
 #include "Entity.h"
 #include "EntityManager.h"
+#include "Systems.h"
 
 #include <memory>
 #include <SFML/Graphics.hpp>
@@ -20,6 +21,7 @@ private:
     EntityManager m_entityManager;
     sf::Font m_font;
     sf::Text m_text;
+    // TODO: implement configs
     //    PlayerConfig m_playerConfig;
     //    EnemyConfig m_enemyConfig;
     //    BulletConfig m_bulletConfig;
@@ -35,15 +37,7 @@ private:
     void init(const std::string& path);
     void setPaused(bool paused) { m_paused = paused; };
 
-    void sMovement();
-    void sUserInput();
-    void sLifespan();
-    void sRender();
-    void sEnemySpawner();
-    void sCollision();
-
     void spawnPlayer();
     void spawnEnemy();
     void spawnBullet(std::shared_ptr<Entity> entity, const Vec2& mousePos);
-    void spawnSpecialWeapon(std::shared_ptr<Entity> entity);
 };
